@@ -12,7 +12,7 @@ const HUB_COLOR := Color("86c06c")
 const BARRIER_COLOR := Color("2f5a2a")
 const SOIL_COLOR := Color("6b4a2f")
 const SOIL_LINE := Color("4e3520")
-const SPECK_COUNT := 900
+const SPECK_COUNT := 3600
 
 
 func _ready() -> void:

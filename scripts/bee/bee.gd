@@ -2,7 +2,7 @@ class_name Bee
 extends CharacterBody2D
 ## The player. Top-down flight with light inertia and an idle bob.
 
-@export var max_speed := 110.0
+@export var max_speed := 140.0
 ## How fast the bee reaches max speed (px/s²).
 @export var acceleration := 650.0
 ## How fast the bee drifts to a stop when input is released (px/s²).

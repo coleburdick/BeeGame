@@ -26,10 +26,13 @@ Only **wild** flowers give pollen. Planted garden flowers never do, so every hyb
   `data/flowers` (to be created in milestone 3).
 
 ## World
-- One seamless map, about **3×3 screens** (1920×1080 px at the 640×360 base resolution).
-- **Central hub** (the starting area) holds the garden and has **no wild flowers**.
+- One seamless map of **6×6 screens** (3840×2160 px at the 640×360 base resolution).
+- Size target: a straight diagonal flight from the hub centre to any map corner takes **~15 s** at the
+  bee's max speed (140 px/s → ~15.7 s). Resize the map if the speed changes much.
+- **Central hub** (the starting area, one screen: 640×360) holds the garden and has **no wild flowers**.
 - **4 flower areas** around the hub, each with **2 wild types**. All open from the start.
-- Each area keeps **4 wild flowers alive** at a time. When one is collected it disappears and a
+- Each area (a 1920×1080 quadrant) keeps **4 wild flowers alive** at a time (revisit in the milestone 2
+  playtest; areas are large). When one is collected it disappears and a
   replacement spawns at a random valid spot in the same area after ~5–10 s, preferably off-screen,
   never overlapping obstacles or other flowers.
 - Area borders blend softly. The outer edge is closed by natural barriers (hedges, water).
