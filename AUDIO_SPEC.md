@@ -20,7 +20,7 @@ them by name.
 - Tell the developer the slot length once it is chosen; it is a single value in the game.
 
 ## Area music
-- `assets/audio/music/area_1.wav` … `area_4.wav`, one per flower area.
+- `assets/audio/music/music_area_1.wav` … `music_area_4.wav`, one per flower area.
 - Must **loop seamlessly**: the last sample flows into the first.
 - The hub has no track of its own: the garden's song is the hub's music.
 - The game crossfades over ~2 s at area borders.
@@ -29,11 +29,11 @@ them by name.
 Short one-shots in `assets/audio/sfx/`:
 | File | When |
 |---|---|
-| `collect.wav` | pollen collected |
-| `plant.wav` | flower planted (can be omitted if the flower's own sound is enough) |
-| `remove.wav` | flower removed |
-| `drop.wav` | pollen dropped |
-| `ui_move.wav`, `ui_select.wav`, `ui_back.wav` | menus |
-| `journal_discover.wav` | new recipe discovered |
+| `sfx_collect.wav` | pollen collected |
+| `sfx_plant.wav` | flower planted (can be omitted if the flower's own sound is enough) |
+| `sfx_remove.wav` | flower removed |
+| `sfx_drop.wav` | pollen dropped |
+| `sfx_ui_move.wav`, `sfx_ui_select.wav`, `sfx_ui_back.wav` | menus |
+| `sfx_journal_discover.wav` | new recipe discovered |
 
-Optional: `bee_wings_loop.wav`, a quiet seamless loop for flying.
+Optional: `sfx_bee_wings_loop.wav`, a quiet seamless loop for flying.

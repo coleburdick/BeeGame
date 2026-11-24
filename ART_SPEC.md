@@ -1,5 +1,7 @@
 # BeeGame — Art Spec
 
+Shareable copy for the artist: https://claude.ai/artifact/GKrbyHy7obZMdjp154f27U (keep both in sync).
+
 For the artist. Placeholder art in the repo follows this spec exactly, so final files can replace
 placeholders without code changes: **same file name, same frame size, same frame count.**
 
@@ -34,9 +36,9 @@ Flowers should read clearly at 16×16 and be distinguishable by **shape as well 
 
 ## Environment
 One tileset per area, 16×16 tiles, as a PNG sheet:
-- `assets/art/tiles/hub.png`: starting area, including the **garden bed** (6×4 tiles, with distinct
+- `assets/art/tiles/tiles_hub.png`: starting area, including the **garden bed** (6×4 tiles, with distinct
   empty-soil tiles and a highlight/playhead overlay tile)
-- `assets/art/tiles/area_1.png` … `area_4.png`: the four flower areas
+- `assets/art/tiles/tiles_area_1.png` … `tiles_area_4.png`: the four flower areas
 - Each sheet should include ground, edge transitions to neighbouring areas, decorations, and an outer
   barrier (hedge, water, etc.)
 
