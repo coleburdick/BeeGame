@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/bee/bee.gd" id="1_bee"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bee"]
+radius = 6.0
+
+[node name="Bee" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_bee")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_bee")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
