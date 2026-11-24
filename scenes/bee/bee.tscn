@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/bee/bee.gd" id="1_bee"]
+[ext_resource type="Script" path="res://scripts/bee/pollen_dots.gd" id="2_dots"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bee"]
 radius = 6.0
@@ -10,6 +11,9 @@ motion_mode = 1
 script = ExtResource("1_bee")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="PollenDots" type="Node2D" parent="Sprite"]
+script = ExtResource("2_dots")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
