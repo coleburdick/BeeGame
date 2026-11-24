@@ -5,7 +5,7 @@ _Last updated: 2026-11-23_
 ## Current state
 - Design is settled: `DESIGN.md` (gameplay + milestones), `ART_SPEC.md` and `AUDIO_SPEC.md` (for the artist/composer).
 - Settings: 640x360 viewport, 1280x720 window, stretch aspect `expand`, integer scaling, nearest filter, 2D pixel snap, **Compatibility renderer** (mobile/web ready).
-- **Milestone 1 (Flight)** on branch `milestone-1-flight` (PR open): bee with inertia + idle bob (max_speed 140, accel 650, friction 450, tuned after playtest), WASD/arrows/gamepad, follow camera clamped to the 3840x2160 map (6x6 screens, ~15 s centre-to-corner), blockout of hub + garden bed + 4 area quadrants, edge barriers. Input map also defines `interact`, `drop_pollen`, `pause` for later milestones.
+- **Milestone 1 (Flight)** on branch `milestone-1-flight` (pushed; PR into `main` not yet opened): bee with inertia + idle bob (max_speed 140, accel 650, friction 450, tuned after playtest), WASD/arrows/gamepad, follow camera clamped to the 3840x2160 map (6x6 screens, ~15 s centre-to-corner), blockout of hub + garden bed + 4 area quadrants, edge barriers. Input map also defines `interact`, `drop_pollen`, `pause` for later milestones.
 - Map geometry lives in `scripts/world/map_layout.gd` (`MapLayout`). Sprite strips load via `SpriteStrips.build()`, which derives frame count from image width.
 - Placeholder art: `godot --headless --path . -s res://tools/make_placeholders.gd`, then `godot --headless --path . --import`.
 - Verification trick: `--write-movie <dir>/f.png --fixed-fps 30 --quit-after N` dumps frames to view; a temporary `-s` SceneTree script can instantiate `main.tscn` and drive `Input.action_press`.
@@ -27,6 +27,6 @@ _Last updated: 2026-11-23_
 - Designer to supply: recipe table, slot length, area/flower names, game title.
 
 ## Notes
-- The fine-grained PAT can't create repositories (403). Create new repos on github.com, or regenerate the PAT with Administration: Read and write.
+- The fine-grained PAT can't create repositories or pull requests (403). Open PRs on github.com, or regenerate the PAT with Administration and Pull requests: Read and write. Create new repos on github.com, or regenerate the PAT with Administration: Read and write.
 - The PAT was shown in a chat transcript when the MCP server was added. Consider regenerating it.
 - `gh` CLI is not installed. Use the GitHub MCP for repo operations.
