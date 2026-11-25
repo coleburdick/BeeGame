@@ -8,9 +8,18 @@ const FULL_FLASH := Color(1.0, 0.45, 0.45)
 
 var _pollen_rects: Array[TextureRect] = []
 var _box: HBoxContainer
+var _shake: Tween
+var _complete_label: Label
 
 
 func _ready() -> void:
+	_complete_label = Label.new()
+	_complete_label.text = "Garden Complete!"
+	_complete_label.add_theme_font_size_override("font_size", 16)
+	_complete_label.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP, Control.PRESET_MODE_MINSIZE, 24)
+	_complete_label.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_complete_label.visible = false
+	add_child(_complete_label)
 	_box = HBoxContainer.new()
 	_box.add_theme_constant_override("separation", 2)
 	_box.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT, Control.PRESET_MODE_MINSIZE, MARGIN)
@@ -42,3 +51,18 @@ func show_pollen(pollen: Array[StringName]) -> void:
 func flash_full() -> void:
 	_box.modulate = FULL_FLASH
 	create_tween().tween_property(_box, "modulate", Color.WHITE, 0.35)
+
+
+## Small shake when the bee tries to plant without 2 pollens.
+func shake_slots() -> void:
+	if _shake and _shake.is_running():
+		return
+	var base := _box.position.x
+	_shake = create_tween()
+	for dx in [-2.0, 2.0, -1.0, 0.0]:
+		_shake.tween_property(_box, "position:x", base + dx, 0.05)
+
+
+## Placeholder until the Garden Complete moment (milestone 7).
+func show_complete(complete: bool) -> void:
+	_complete_label.visible = complete

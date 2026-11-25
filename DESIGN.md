@@ -22,8 +22,11 @@ Only **wild** flowers give pollen. Planted garden flowers never do, so every hyb
 ## Flowers
 - **8 wild types**, all pairs defined → 8 pure + 28 hybrids = **36 flowers**.
 - IDs: `wild_01` … `wild_08`; hybrids `hybrid_AA_BB` with the lower number first (e.g. `hybrid_01_02`).
-- The recipe table (which pair makes which flower, names, colours) is owned by the designer and lives in
-  `data/flowers` (to be created in milestone 3).
+- The recipe table is owned by the designer and lives in `data/flowers/flowers.csv` (columns `id`, `name`,
+  `color` as `#rrggbb`; editable in any spreadsheet). The pair is fixed by the ID
+  (`wild_03 + wild_07 = hybrid_03_07`); the table gives each flower its name and colour, and the art and
+  sound files give it its look and voice. The game reports missing or unknown IDs on start.
+  Until the designer's table arrives it holds placeholders (colour names, hybrid colour = parents' average).
 
 ## World
 - One seamless map of **6×6 screens** (3840×2160 px at the 640×360 base resolution).

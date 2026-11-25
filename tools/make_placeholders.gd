@@ -68,8 +68,16 @@ func _init() -> void:
 	_save_strip([down, up, down], "res://assets/art/bee/bee_collect.png")
 	for i in FlowerTypes.WILD.size():
 		var id: StringName = FlowerTypes.WILD[i]
-		_save_image(_flower(FlowerTypes.color(id), PETALS[i], PETAL_RADIUS[i]),
+		_save_image(_flower([FlowerTypes.color(id)], PETALS[i], PETAL_RADIUS[i]),
 			"res://assets/art/flowers/%s.png" % id)
+	# Hybrids: petals alternate both parents' colours, an even petal count from the lower
+	# parent and petal size from the higher one.
+	for a in FlowerTypes.WILD.size():
+		for b in range(a + 1, FlowerTypes.WILD.size()):
+			var id := FlowerTypes.recipe(FlowerTypes.WILD[a], FlowerTypes.WILD[b])
+			var colors := [FlowerTypes.color(FlowerTypes.WILD[a]), FlowerTypes.color(FlowerTypes.WILD[b])]
+			var count: int = PETALS[a] + PETALS[a] % 2
+			_save_image(_flower(colors, count, PETAL_RADIUS[b]), "res://assets/art/flowers/%s.png" % id)
 	_save_image(_pollen_slot(), "res://assets/art/ui/pollen_slot.png")
 	_save_image(_pollen(), "res://assets/art/ui/pollen.png")
 	print("Placeholders written.")
@@ -87,17 +95,20 @@ const CENTER := Color("6b4a1f")
 const OUTLINE := Color("2b1d14")
 
 
-func _flower(petal: Color, count: int, radius: float) -> Image:
+## Petals cycle through `colors`: one colour for wild types, both parents' colours for hybrids.
+func _flower(colors: Array, count: int, radius: float) -> Image:
 	var img := Image.create(16, 16, false, Image.FORMAT_RGBA8)
 	for y in range(9, 15):
 		img.set_pixel(8, y, STEM)
 	for p in [Vector2i(9, 11), Vector2i(10, 11), Vector2i(10, 10), Vector2i(6, 12), Vector2i(7, 12)]:
 		img.set_pixel(p.x, p.y, LEAF)
 	var head := Vector2(8.5, 6.5)
-	var shade := petal.darkened(0.25)
+
 	for i in count:
 		var a := TAU * i / count - PI / 2
 		var c := head + Vector2(cos(a), sin(a)) * 3.2
+		var petal: Color = colors[i % colors.size()]
+		var shade := petal.darkened(0.25)
 		for y in 16:
 			for x in 16:
 				var px := Vector2(x + 0.5, y + 0.5)
