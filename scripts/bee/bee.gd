@@ -70,6 +70,15 @@ func drop_pollen() -> bool:
 	return true
 
 
+## Empties both slots (used when planting) and returns what was carried, oldest first.
+func take_pollen() -> Array[StringName]:
+	var taken := pollen.duplicate()
+	pollen.clear()
+	sprite.play(&"collect")
+	_pollen_updated()
+	return taken
+
+
 func _pollen_updated() -> void:
 	var colors: Array[Color] = []
 	for id in pollen:
